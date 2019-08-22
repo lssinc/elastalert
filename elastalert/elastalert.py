@@ -958,6 +958,9 @@ class ElastAlerter(object):
                 'matches': num_matches,
                 'hits': max(self.thread_data.num_hits, self.thread_data.cumulative_hits),
                 '@timestamp': ts_now(),
+                'client_name': rule['client_name'],
+                'app_name': rule['app_name'],
+                'tag': rule['tag'],
                 'time_taken': time_taken}
         self.writeback('elastalert_status', body)
 
@@ -1558,7 +1561,7 @@ class ElastAlerter(object):
             'alert_time': alert_time,
             'client_name': rule['client_name'],
             'app_name': rule['app_name'],
-            'tag': rule['tag'],
+            'tag': rule['tag']
         }
 
         if rule.get('include_match_in_root'):
