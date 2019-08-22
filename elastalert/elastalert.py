@@ -1557,7 +1557,8 @@ class ElastAlerter(object):
             'alert_sent': alert_sent,
             'alert_time': alert_time,
             'client_name': rule['client_name'],
-            'app_name': rule['app_name']
+            'app_name': rule['app_name'],
+            'tag': rule['tag'],
         }
 
         if rule.get('include_match_in_root'):
